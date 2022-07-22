@@ -191,9 +191,3 @@ function clear(){
   t_id = []
   kode = []   
 }
-
-
-$("#sample_code").click(() => {
-    var sample_code = "program bil_genap;\nuses crt;\nvar bil1,bil2:integer;\nbegin clrscr;\nwriteln('=================');\nwriteln('Tutorial Koding');\nwriteln('=================');\nwriteln('');\nwrite('Masukan Bilangan Pertama : ');\nreadln(bil1);\nwrite('Masukan Bilangan Kedua : ');\nreadln(bil2);\nwrite('Bilangan Genap Yang Ditemukan : ');\nfor bil1:=bil1 to bil2 do\nbegin\nif (bil1 mod 2 = 0) then\nbegin\n write(bil1,' ');\n end;\nend;\nreadln;\nend.";
-    $("#floatingTextarea2").text(sample_code)
-})
