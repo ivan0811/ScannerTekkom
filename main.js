@@ -159,7 +159,7 @@ $("#convert").click(function(){
     }
 
     if(/([A-Za-z0-9]+)/g.test(item)){
-      t_id.push(item)
+      t_identifier.push(item)
       return
     }            
   })                               
@@ -169,7 +169,7 @@ $("#convert").click(function(){
   console.log(t_konstanta)
   console.log(t_delimiter) 
   console.log(t_konstanta)  
-  console.log(t_id)
+  console.log(t_identifier)
   console.log(srcCode)
 })                
 
