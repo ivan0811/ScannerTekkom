@@ -12,7 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Quicksand:wght@300;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-  
+  <!-- Favico -->
+  <link rel="shortcut icon" href="hihihidar.ico" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
@@ -37,48 +38,48 @@
   </nav>
   <!-- End Navbar -->
 
-  <!-- Textarea -->
-  <div class="container input">
-    <h2>Masukan Code Program (Pascal)</h2>
-    <div class="form-floating">
-        <textarea class="form-control txt_area" id="floatingTextarea2" style="height: 300px" autofocus="on" value=""></textarea>
-        <label for="floatingTextarea2">Source Code</label>
-      </div>
-      <button type="button" class="btn btn-primary mt-3 sample">Sample Code</button> <button type="button" id="convert" class="btn btn-primary mt-3">Submit</button>
-
-  </div>
-  <!-- End Textarea -->
-
   <!-- Hasil analisis -->
   <div class="container hasil">
-    <h2>Hasil Analisis Program</h2>
+    <h2>Masukan Kode Program (PASCAL)</h2>
+    <button type="button" class="btn btn-primary mb-3" id="sample_code">Sample Code</button> <button type="button" id="convert" class="btn btn-primary mb-3">Submit</button>
     <div class="row">
         <div class="col-6">
-          <textarea class="form-control" id="hasilanalisis" name="ha" rows="15" readonly=""></textarea>
+          <textarea class="form-control" id="hasilanalisis" name="ha" rows="23"></textarea>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="identifier" class="font-weight-bold">Identifier</label>
-            <input type="text" class="form-control" id="identifier" readonly="" value="">
+            <input type="text" class="form-control" id="identifier"  readonly="" value="">
   
             <label for="keywordout" class="font-weight-bold">Keywords</label>
             <input type="text" class="form-control" id="keywordout" readonly="" value="">
   
             <label for="operator" class="font-weight-bold">Operator</label>
             <input type="email" class="form-control" id="operator" readonly="" value="">
-  
-            <label for=" number" class="font-weight-bold">Konstanta</label>
-            <input type="email" class="form-control" id="number" readonly="" value="">
-  
+            
             <label for="delimiter" class="font-weight-bold">Delimeter</label>
             <input type="email" class="form-control" id="delimiter" readonly="" value="">
+  
+            <label for=" number" class="font-weight-bold">Konstanta - Boolean</label>
+            <input type="email" class="form-control" id="boolean" readonly="" value="">
+            <label for=" number" class="font-weight-bold">Konstanta - Char</label>
+            <input type="email" class="form-control" id="char" readonly="" value="">
+            <label for=" number" class="font-weight-bold">Konstanta - Integer</label>
+            <input type="email" class="form-control" id="integer" readonly="" value="">
+            <label for=" number" class="font-weight-bold">Konstanta - Riil</label>
+            <input type="email" class="form-control" id="riil" readonly="" value="">
+            <label for=" number" class="font-weight-bold">Konstanta - String</label>
+            <input type="email" class="form-control" id="string" readonly="" value="">
+  
           </div>
         </div>
       </div>
+
     </div>
   </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
   </body>
 </html>

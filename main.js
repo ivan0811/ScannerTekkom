@@ -5,23 +5,12 @@ const del = [".",",",":",";","(",")","[","]"]
 var t_identifier = [],
 t_keyword = [],
 t_operator = [],
-t_konstanta = 
-  {
-    int : [
-
-    ],
-    riil : [
-
-    ],
-    chr : [
-
-    ],
-    bool : [
-
-    ],
-    str : [
-
-    ]
+t_konstanta = {
+    int : [],
+    riil : [],
+    chr : [],
+    bool : [],
+    str : []
   },
 t_logic = [],
 t_delimiter = [],
@@ -30,9 +19,9 @@ kode = [],
 srcCode
 
 $("#convert").click(function(){     
-  clear()          
-  srcCode = $("#floatingTextarea2").val();          
-  getAnalisis = srcCode.trim()          
+  clear()
+  srcCode = $("#hasilanalisis").val()
+  getAnalisis = srcCode.trim()
   getAnalisis = getAnalisis.replace(/@"\{(.*)\}",/gi, "")
   var getString = getAnalisis.split(/(')/)          
   var getNumber = getAnalisis.split(/(\s|;)/)
@@ -52,11 +41,11 @@ $("#convert").click(function(){
 
   getNumber.forEach(item => {            
     if(/^[+-]?\d+\.\d+?$/.test(item)){
-      t_konstanta.riil.push(item)
+      t_konstanta.riil.push("'"+item+"'")
     }
 
     if(/^(-[0-9]|[0-9])/.test(item) && !/^[+-]?\d+\.\d+?$/.test(item)){                                      
-      t_konstanta.int.push(item)            
+      t_konstanta.int.push("'"+item+"'")
     }
   })
 
@@ -67,9 +56,9 @@ $("#convert").click(function(){
         return
       }
       if(item.length == 1) 
-        t_konstanta.chr.push(item)
+        t_konstanta.chr.push("'"+item+"'")
       else
-        t_konstanta.str.push(item)
+        t_konstanta.str.push("'"+item+"'")
       return
     }
 
@@ -117,7 +106,7 @@ $("#convert").click(function(){
     }).filter(onlyUnique)
 
     if(keywordTemp.length > 0){
-      t_keyword.push(keywordTemp[0])
+      t_keyword.push("'"+keywordTemp[0]+"'")
       return
     }          
 
@@ -126,7 +115,7 @@ $("#convert").click(function(){
     }).filter(onlyUnique)            
 
     if(oprTemp.length > 0){
-      t_operator.push(oprTemp[0])
+      t_operator.push("'"+oprTemp[0]+"'")
       lineOpr.push(key)
       return
     }
@@ -136,7 +125,7 @@ $("#convert").click(function(){
     }).filter(onlyUnique)
 
     if(logTemp.length > 0){
-      t_logic.push(logTemp[0])
+      t_logic.push("'"+logTemp[0]+"'")
       return
     }            
 
@@ -145,7 +134,7 @@ $("#convert").click(function(){
     }).filter(onlyUnique)
     
     if(delTemp.length > 0){
-      t_delimiter.push(delTemp[0])
+      t_delimiter.push("'"+delTemp[0]+"'")
       return
     }
 
@@ -159,17 +148,26 @@ $("#convert").click(function(){
     }
 
     if(/([A-Za-z0-9]+)/g.test(item)){
-      t_identifier.push(item)
+      t_identifier.push("'"+item+"'")
       return
     }            
-  })                               
-  console.log(t_keyword)
-  console.log(t_operator)          
-  console.log(t_logic)
-  console.log(t_konstanta)
-  console.log(t_delimiter)    
-  console.log(t_identifier)
-  console.log(srcCode)
+  })
+    $('#identifier').val('['+t_identifier+']')
+    $('#keywordout').val('['+t_keyword+']')
+    $('#operator').val('['+t_operator+']')
+    $('#delimiter').val('['+t_delimiter+']')
+    $('#boolean').val('['+t_konstanta.bool+']')
+    $('#char').val('['+t_konstanta.chr+']')
+    $('#integer').val('['+t_konstanta.int+']')
+    $('#riil').val('['+t_konstanta.riil+']')
+    $('#string').val('['+t_konstanta.str+']')
+//   console.log(t_keyword)
+//   console.log(t_operator)          
+//   console.log(t_logic)
+//   console.log(t_konstanta)
+//   console.log(t_delimiter)
+//   console.log(t_id)
+//   console.log(srcCode)    
 })                
 
 function onlyUnique(value, index, self) {
@@ -182,21 +180,11 @@ function clear(){
   t_operator = []
   t_konstanta = 
     {
-      int : [
-
-      ],
-      riil : [
-
-      ],
-      chr : [
-
-      ],
-      bool : [
-
-      ],
-      str : [
-
-      ]
+      int : [],
+      riil : [],
+      chr : [],
+      bool : [],
+      str : []
     };
   t_logic = []
   t_delimiter = []
@@ -205,7 +193,7 @@ function clear(){
 }
 
 
-$(".sample").click(() => {
+$("#sample_code").click(() => {
     var sample_code = "program bil_genap;\nuses crt;\nvar bil1,bil2:integer;\nbegin clrscr;\nwriteln('=================');\nwriteln('Tutorial Koding');\nwriteln('=================');\nwriteln('');\nwrite('Masukan Bilangan Pertama : ');\nreadln(bil1);\nwrite('Masukan Bilangan Kedua : ');\nreadln(bil2);\nwrite('Bilangan Genap Yang Ditemukan : ');\nfor bil1:=bil1 to bil2 do\nbegin\nif (bil1 mod 2 = 0) then\nbegin\n write(bil1,' ');\n end;\nend;\nreadln;\nend.";
     $("#floatingTextarea2").text(sample_code)
 })
